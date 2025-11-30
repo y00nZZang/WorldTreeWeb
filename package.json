@@ -1,0 +1,32 @@
+{
+  "name": "worldtreeweb",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Map-based Christmas Tree Sharing App - Monorepo",
+  "scripts": {
+    "dev:frontend": "nx serve frontend",
+    "dev:backend": "nx serve backend",
+    "build": "nx run-many --target=build --all",
+    "test": "nx run-many --target=test --all",
+    "lint": "nx run-many --target=lint --all",
+    "format": "biome check --write .",
+    "format:check": "biome ci ."
+  },
+  "workspaces": [
+    "frontend",
+    "backend",
+    "infra"
+  ],
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "nx": "^20.2.0",
+    "@nx/workspace": "^20.2.0",
+    "@nx/react": "^20.2.0",
+    "@nx/nest": "^20.2.0",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

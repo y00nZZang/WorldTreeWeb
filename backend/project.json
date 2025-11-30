@@ -1,0 +1,55 @@
+{
+  "name": "backend",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "backend/src",
+  "tags": ["type:app", "scope:backend"],
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/backend",
+        "main": "backend/src/main.ts",
+        "tsConfig": "backend/tsconfig.app.json",
+        "assets": ["backend/src/assets"],
+        "webpackConfig": "backend/webpack.config.js"
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "buildTarget": "backend:build",
+        "port": 3000
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "backend:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/backend"],
+      "options": {
+        "jestConfig": "backend/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "biome check backend/"
+      }
+    }
+  }
+}
