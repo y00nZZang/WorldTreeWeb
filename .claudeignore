@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+*.tsbuildinfo
+
+# Monorepo cache
+.turbo/
+.nx/cache/
+
+# Testing
+coverage/
+.nyc_output/
+
+# Logs
+*.log
+logs/
+
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.backup
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary
+*.tmp
+.cache/
+.temp/
+
+# Lock files (usually don't need to analyze)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml

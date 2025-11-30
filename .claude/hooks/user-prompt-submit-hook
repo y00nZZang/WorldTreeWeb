@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# This hook runs before user prompts are submitted
+# It can be used to validate or enhance user input
+
+# Example: Check if user is trying to commit sensitive files
+if echo "$PROMPT" | grep -q "commit.*\.env"; then
+  echo "⚠️  Warning: You may be trying to commit .env files. Please verify."
+fi
+
+exit 0
