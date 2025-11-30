@@ -33,22 +33,86 @@ WorldTreeWeb is a map-based social networking service for sharing decorated or d
 
 ### Tools
 - Biome (linting & formatting)
-- Nx or Turborepo (monorepo)
+- Nx (monorepo)
 
 ## Getting Started
 
-(To be added after monorepo setup)
+### Prerequisites
+
+- Node.js >= 18.0.0
+- npm >= 9.0.0
+
+### Installation
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd WorldTreeWeb
+
+# Install dependencies
+npm install
+```
+
+### Development
+
+```bash
+# Run frontend development server (http://localhost:4200)
+npm run dev:frontend
+
+# Run backend development server (http://localhost:3000)
+npm run dev:backend
+
+# Run both concurrently (requires installing concurrently)
+npx concurrently "npm run dev:frontend" "npm run dev:backend"
+```
+
+### Building
+
+```bash
+# Build all projects
+npm run build
+
+# Build output will be in dist/frontend and dist/backend
+```
+
+### Linting & Formatting
+
+```bash
+# Check and fix code with Biome
+npm run format
+
+# Check code without fixing
+npm run format:check
+
+# Run lint on all projects
+npm run lint
+```
+
+### Testing
+
+```bash
+# Run all tests
+npm run test
+```
 
 ## Project Structure
 
 ```
 WorldTreeWeb/
-├── frontend/          # React application
-├── backend/           # NestJS application
+├── frontend/          # React 18 + Vite + TypeScript
+├── backend/           # NestJS + TypeScript
 ├── infra/             # Terraform configurations
-└── .claude/           # Claude Code configurations
-    ├── commands/      # Slash commands
-    └── hooks/         # Git and tool hooks
+├── design-lab/        # Figma designs and experimental UI
+├── libs/
+│   └── shared-types/  # Shared TypeScript types
+├── .claude/           # Claude Code configurations
+│   ├── commands/      # Slash commands (/commit, /lint, etc.)
+│   └── hooks/         # Git and tool hooks
+├── .github/
+│   └── workflows/     # CI/CD pipelines
+├── biome.json         # Biome configuration
+├── nx.json            # Nx workspace configuration
+└── package.json       # Root package.json
 ```
 
 ## Development
